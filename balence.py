@@ -1,3 +1,8 @@
 #!/usr/bin/env python
-import pygame # using pygame to handle user input
-screen = pygame.display.set_mode((640, 480)) # set the screen to be a 480p windowed screen
+import math
+import os
+import sys
+import pygame
+from pygame.locals import *
+pygame.init()
+screen = pygame.display.set_mode((1200, 800)) # set the screen to be a 480p windowed screen
