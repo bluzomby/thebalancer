@@ -12,6 +12,7 @@ white = (255,255,255)
 # Set score/game related variables 
 myscore = 0
 mylives = 0
+running = True
 # Load images
 background = pygame.image.load('background.bmp')
 instruction_image = pygame.image.load('instructions.bmp')
@@ -34,7 +35,7 @@ while (end_it==False):
 		if event.type == MOUSEBUTTONDOWN:
 			end_it = True
 			instructions = True
-			screen.fill(white)
+			screen.fill(black)
 	screen.blit(nlabel,(450, 360))
 	pygame.display.flip()
 while (instructions == True):
@@ -42,9 +43,9 @@ while (instructions == True):
 	for event in pygame.event.get():
 		if event.type == MOUSEBUTTONDOWN:
 			instructions = False
-			screen.fill(white)
+			main_game = True
+			screen.fill(black)
 	pygame.display.flip()
-running = True
 while running:
 	for event in pygame.event.get(): # make it so the window closes if the "X" is pressed
 		if event.type == pygame.QUIT:
