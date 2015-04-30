@@ -2,7 +2,7 @@
 import math, os, sys, pygame, inputbox
 # using the library pygame (http://pygame.org) to handle most things and inputbox (http://www.pygame.org/pcr/inputbox/) to handle text easily 
 from pygame.locals import *
-
+myname = raw_input('Type your name and then press enter: ')
 # define some colors
 blue = (0,0,255)
 red = (255,0,0)
@@ -18,19 +18,11 @@ instructions = False
 game = False
 # set screen size
 screen = pygame.display.set_mode((1280, 720)) # set the screen to be a 720p windowed screen
-# ask the user their name before launching into the main program 
-myname = int(inputbox.ask(screen, 'Type your name and then press enter: '))
-
 # Load images
 background = pygame.image.load('background.bmp')
 instruction_image = pygame.image.load('instructions.bmp')
 plate1 = pygame.image.load('plates.bmp')
 back1 = pygame.image.load('mainback1.bmp')
-# load textboxes // all using inputbox 
-myname = int(inputbox.ask(screen, 'Type your name and then press enter: '))
-inp1 = int(inputbox.ask(screen, ''))
-inp2 = int(inputbox.ask(screen, ''))
-inp3 = int(inputbox.ask(screen, ''))
 
 # General window intializing stuff
 pygame.init()
@@ -46,10 +38,9 @@ pygame.display.flip() # idk why I have to do this but the code won't work withou
 ###################################
 
 def main():
-	screen.blit(myname, (0,0))
-	pygame.display.flip()
+	# ask the user their name before launching into the main program
+
 	# Start screen, code used is here: http://stackoverflow.com/questions/20356307/how-would-i-add-a-start-screen-to-this-pygame-python-code
-	screen.fill(black)
 	end_it = False 
 	while (end_it==False):
 		screen.blit(background, [0, 0])
@@ -75,8 +66,9 @@ def main():
 		pygame.display.flip()
 	
 	while (game == True):
-		screen.fill(white)
-		screen.blit(inp1, (615, 320))
+		screen.blit(back1, (0,0))
+		inp1 = int(inputbox.ask(screen, ''))
+		screen.blit(inp1, inp1.get_rect(), (315, 620))
 		str.inp1
 		if inp1 == "1":
 			correct1 = True 
